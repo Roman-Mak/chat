@@ -3,7 +3,7 @@ import style from "./Quality.module.css"
 
 const Quality = (props) => {
         return (
-            <div className={props.styles}>{props.quality}</div>
+            <div className={style[props.styles]}>{props.quality}</div>
         );
     };
 
