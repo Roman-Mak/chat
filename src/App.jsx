@@ -12,14 +12,17 @@ class App extends React.Component {
             {quality: "Сильный", id: 2},
             {quality: "Смелый", id: 3}
         ],
-        number: 0
+        value: 0,
+        names: []
 };
 
-    addNumber = () => {
+    addName = (name) => {
         this.setState({
-            number: this.state.number + 1
+            value: this.state.value + 1,
+            names:[...this.state.names, {name: name}]
         })
     };
+
 
     render = () => {
 
@@ -27,7 +30,7 @@ class App extends React.Component {
             <div className="flex">
                 <Message />
                 <Qualities qualities={this.state.qualities}/>
-                <Counter addNumber={this.addNumber} nubmer={this.state.number}/>
+                <Counter addName={this.addName} counterValue={this.state.value} names={this.state.names}/>
             </div>
         );
     };

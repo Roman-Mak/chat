@@ -1,5 +1,6 @@
 import React from "react";
 import Quality from "./Quality/Quality";
+import style from "./Qualities.module.css"
 
 class Qualities extends React.Component {
 
@@ -13,7 +14,7 @@ class Qualities extends React.Component {
         });
 
         return (
-            <div>
+            <div className={style.qualities}>
             {newQualities}
             </div>
         );

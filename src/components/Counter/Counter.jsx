@@ -1,29 +1,18 @@
 import React from 'react';
 import style from './Counter.module.css';
+import Value from "./Value/Value";
+import InputName from "./InputName/InputName";
+import ShowName from "./ShowName/ShowName";
 
 
-class Counter extends React.Component {
-
-    inputText = React.createRef();
-
-    onAddAlertClick = () => {
-        this.props.addNumber();
-        if (this.inputText.current.value !== "") {
-            alert(`Привет, ${this.inputText.current.value}!`);
-        } else {return}
-        this.inputText.current.value = "";
-    };
-
-    render = () => {
-
+const Counter = (props) => {
         return (
-            <div>
-                <span>{this.props.nubmer}</span>
-                <input ref={this.inputText} type="text"/>
-                <button onClick={this.onAddAlertClick}>Button</button>
+            <div className={style.counter}>
+                <Value counterValue={props.counterValue}/>
+                <InputName names={props.names} addName={props.addName}/>
+                <ShowName names={props.names}/>
             </div>
         );
-    };
-}
+};
 
 export default Counter;
