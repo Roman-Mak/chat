@@ -44,6 +44,7 @@ class InputAddItem extends React.Component {
                     type="text"
                     onKeyPress={this.onKeyPress}
                     className={inputClass}
+                    placeholder={"Write your name :)"}
                 />
                 <AddNameButton addName={this.addName}/>
             </div>

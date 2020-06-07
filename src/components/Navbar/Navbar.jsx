@@ -1,12 +1,17 @@
 import React from 'react';
+import style from "./Navbar.module.css"
 import {NavLink} from "react-router-dom";
 
 const Navbar = (props) => {
     return (
-        <div className="navbar">
-           <NavLink to={"/monday"} className={"nav"}>Monday</NavLink>
-           <NavLink to={"/tuesday"} className={"nav"}>Tuesday</NavLink>
-        </div>
+        <nav className={style.navbar}>
+            <div className={style.nav}>
+                <NavLink to={"/monday"} activeClassName={style.active}>Monday</NavLink>
+            </div>
+            <div className={style.nav}>
+                <NavLink to={"/tuesday"} activeClassName={style.active}>Tuesday</NavLink>
+            </div>
+        </nav>
     );
 };
 

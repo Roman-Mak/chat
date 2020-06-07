@@ -17,17 +17,18 @@ class CounterNames extends React.Component {
         }, () => {
             alert(`Привет, ${this.state.names[this.state.names.length - 1].name}!`)
         });
-};
+    };
 
-render = () => {
-    return (
-        <div className={style.counter}>
-            <Value counterValue={this.state.names.length}/>
-            <InputAddItem addName={this.addName}/>
-            <ShowName names={this.state.names}/>
-        </div>
-    )
-}
+    render = () => {
+        return (
+            <div className={style.counter}>
+                <div>Names counter</div>
+                <Value counterValue={this.state.names.length}/>
+                <InputAddItem addName={this.addName}/>
+                <ShowName names={this.state.names}/>
+            </div>
+        )
+    }
 }
 
 export default CounterNames;

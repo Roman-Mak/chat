@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #161517;
+    outline: none;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.nav a {
+    padding: 5px;
+    color: grey;
+    text-decoration: none;
+}
+
+.nav .active {
+    color: #ffffff;
+}
+
+.nav a:hover {
+    color: #ffffff;
+}
