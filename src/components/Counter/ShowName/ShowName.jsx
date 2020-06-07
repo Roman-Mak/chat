@@ -3,7 +3,8 @@ import style from './ShowName.module.css';
 
 
 const ShowName = (props) => {
-    return <div className={style.names}>{props.names.map(n => <div>{n.name}</div>)}</div>
+    const {names} = props;
+    return <div className={style.names}>{names.map(n => <div>{n.name}</div>)}</div>
 };
 
 
