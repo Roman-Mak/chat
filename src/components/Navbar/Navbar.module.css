@@ -1,11 +1,40 @@
 .navbar {
+    background-color: #161517;
+    width: 100%;
+    height: 60px;
+    /*margin-bottom: 50px;*/
+    position: fixed;
+    top: -60px;
+    left: 0;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.navbarPanel {
     display: flex;
     justify-content: center;
-    padding: 20px;
-    background-color: #161517;
+    padding: 19px;
     outline: none;
-    width: 100%;
-    margin-bottom: 50px;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.navbar:hover {
+    top: 0;
+}
+
+.navigation {
+    width: 100px;
+    background-color: #161517;
+    color: indianred;
+    text-align: center;
+    margin: 0 auto;
+    height: 30px;
+    border-radius: 8px;
 }
 
 .nav a {

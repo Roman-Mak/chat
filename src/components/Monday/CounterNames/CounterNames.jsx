@@ -2,7 +2,7 @@ import React from 'react';
 import style from './CounterNames.module.css';
 import Value from "./Value/Value";
 import ShowName from "./ShowName/ShowName";
-import InputAddItem from "./Input/InputAddItem";
+import InputAddItem from "./InputAddItem/InputAddItem";
 
 class CounterNames extends React.Component {
     state = {

@@ -5,7 +5,8 @@
     align-items: center;
 }
 
-.flex {
+.monday {
+    margin-top: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,4 +18,38 @@
 }
 .error:focus {
     outline: red;
+}
+
+.tuesday {
+    margin-top: 200px;
+}
+
+.todolists {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.todoList {
+    width: 300px;
+}
+
+.todoList > div {
+    padding: 10px;
+}
+
+.todoList-task {
+
+}
+
+.todoList-task.done {
+    opacity: 0.5;
+}
+
+.filter-active {
+    background-color: blue;
+}
+
+.error {
+    border-color: red;
 }

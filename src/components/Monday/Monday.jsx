@@ -1,11 +1,11 @@
 import React from 'react';
-import Message from "../Message/Message";
-import Qualities from "../Qualities/Qualities";
-import CounterNames from "../Counter/CounterNames";
+import Message from "./Message/Message";
+import Qualities from "./Qualities/Qualities";
+import CounterNames from "./CounterNames/CounterNames";
 
 const Monday = (props) => {
     return (
-        <div className="flex">
+        <div className="monday">
             <Message/>
             <Qualities/>
             <CounterNames/>
