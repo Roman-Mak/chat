@@ -4,10 +4,12 @@ import TodoList from "./TodoList";
 import AddNewItemForm from "./AddNewItemForm";
 import {restoreState, saveState} from "./stateFunctions";
 import {v1} from 'uuid';
+import Preloader from "../common/Preloader";
 
 class Tuesday extends React.Component {
     state = {
-        todolists: []
+        todolists: [],
+        loading: true
     };
 
     addTodoList = (title) => {
@@ -16,30 +18,39 @@ class Tuesday extends React.Component {
             title: title
         };
         this.setState({todolists: [...this.state.todolists, newTodoList]}, () => {
-            saveState("todolists-state", this.state);
+            saveState("todolists-state", this.state.todolists);
         });
     };
 
     componentDidMount() {
         this.getTodoLists();
+        setTimeout(() => {
+            this.setState({loading: false})
+        }, 3000)
     }
 
     getTodoLists = () => {
-        let state = restoreState("todolists-state", this.state);
-        this.setState(state);
+        let todolists = restoreState("todolists-state", this.state.todolists);
+        this.setState({todolists});
     };
 
     render = () => {
-        const todolists = this.state.todolists.map(tl => <TodoList key={tl.id} id={tl.id} title={tl.title}/>)
+        const todolists = this.state.todolists.map(tl => <TodoList key={tl.id} id={tl.id} title={tl.title}/>);
 
         return (
             <>
-                <div className="tuesday">
-                    <AddNewItemForm addItem={this.addTodoList}/>
-                </div>
-                <div className="todolists">
-                    {todolists}
-                </div>
+                {
+                    this.state.loading
+                        ? <Preloader/>
+                        : <>
+                            <div className="tuesday">
+                                <AddNewItemForm addItem={this.addTodoList}/>
+                            </div>
+                            <div className="todolists">
+                                {todolists}
+                            </div>
+                        </>
+                }
             </>
         );
     }

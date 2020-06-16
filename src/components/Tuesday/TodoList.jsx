@@ -69,6 +69,10 @@ class TodoList extends React.Component {
         this.changeTask(taskId, {title: title});
     };
 
+    changePriority = (taskId, priority) => {
+        this.changeTask(taskId, {priority})
+    };
+
     render = () => {
         return (
             <div className="todoList">
@@ -80,6 +84,7 @@ class TodoList extends React.Component {
                 <TodoListTasks changeStatus={this.changeStatus}
                                changeTitle={this.changeTitle}
                                deleteTask={this.deleteTask}
+                               changePriority={this.changePriority}
                                tasks={this.state.tasks.filter(t => {
                                    if (this.state.filterValue === "All") {
                                        return true;
