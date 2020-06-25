@@ -5,11 +5,12 @@ import AddNewItemForm from "./AddNewItemForm";
 import {restoreState, saveState} from "./stateFunctions";
 import {v1} from 'uuid';
 import Preloader from "../common/Preloader";
+import {connect} from "react-redux";
+import {setLoading} from "../../redux/loadingReducer";
 
 class Tuesday extends React.Component {
     state = {
-        todolists: [],
-        loading: true
+        todolists: []
     };
 
     addTodoList = (title) => {
@@ -25,7 +26,7 @@ class Tuesday extends React.Component {
     componentDidMount() {
         this.getTodoLists();
         setTimeout(() => {
-            this.setState({loading: false})
+            this.props.setLoading(false);
         }, 3000)
     }
 
@@ -40,7 +41,7 @@ class Tuesday extends React.Component {
         return (
             <>
                 {
-                    this.state.loading
+                    this.props.loading
                         ? <Preloader/>
                         : <>
                             <div className="tuesday">
@@ -56,5 +57,7 @@ class Tuesday extends React.Component {
     }
 }
 
-export default Tuesday;
+const mapStateToProps = (state) => ({loading: state.loading.loading});
+
+export default connect(mapStateToProps, {setLoading})(Tuesday);
 
