@@ -30,12 +30,21 @@ class TodoList extends React.Component {
         this.setState(state);
     };
 
+    getDateString = () => {
+        const date = new Date();
+        return `${date}`.split("G")[0];
+    };
+
     addTask = (newText) => {
+        const date = this.getDateString();
         let newTask = {
             id: v1(),
             title: newText,
             isDone: false,
-            priority: "low"
+            priority: "low",
+            created: date,
+            updated: date,
+            finished: "not finished"
         };
         let newTasks = [...this.state.tasks, newTask];
         this.setState({tasks: newTasks}, () => {
@@ -49,12 +58,12 @@ class TodoList extends React.Component {
         });
     };
 
-    changeTask = (taskId, obj) => {
+    changeTask = (taskId, obj, timeStatus) => {
         let newTasks = this.state.tasks.map(t => {
-            if (t.id != taskId) {
+            if (t.id !== taskId) {
                 return t;
             } else {
-                return {...t, ...obj};
+                return {...t, ...obj, ...timeStatus};
             }
         });
         this.setState({tasks: newTasks}, () => {
@@ -63,14 +72,18 @@ class TodoList extends React.Component {
     };
 
     changeStatus = (taskId, isDone) => {
-        this.changeTask(taskId, {isDone: isDone});
+        const date = this.getDateString();
+        let finished;
+        isDone ? finished = date : finished = "not finished";
+        this.changeTask(taskId, {isDone}, {finished});
     };
     changeTitle = (taskId, title) => {
-        this.changeTask(taskId, {title: title});
+        const date = this.getDateString();
+        this.changeTask(taskId, {title}, {updated: date});
     };
-
     changePriority = (taskId, priority) => {
-        this.changeTask(taskId, {priority})
+        const date = this.getDateString();
+        this.changeTask(taskId, {priority}, {updated: date});
     };
 
     render = () => {

@@ -31,11 +31,14 @@
 }
 
 .todoList {
-    width: 300px;
+    min-width: 300px;
 }
 
 .todoList > div {
     padding: 10px;
+}
+
+.task-container {
 }
 
 .todoList-task {
@@ -43,7 +46,27 @@
 }
 
 .todoList-task.done {
-    opacity: 0.5;
+    color: darkgrey;
+}
+
+.time-status {
+    margin-right: 30px;
+    position: absolute;
+    background-color: lightgrey;
+    /*border: 1px solid;*/
+    border-radius: 5px;
+}
+
+.time-status div {
+    padding: 2px;
+    font-size: 14px;
+}
+
+.time-status-corner {
+    margin-left: 12px;
+    width: 1px;
+    border: 9px solid transparent;
+    border-bottom: 9px solid lightgrey;
 }
 
 .filter-active {
